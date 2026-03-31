@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TACTICAL HEALTH MONITOR</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="header-left">
+<div class="system-title">TACTICAL HEALTH MONITOR</div>
+<div class="sub-info">
+STATUS: <span id="mode-text" class="status-demo">DEMO</span>
+UNIT: <span class="unit-id">ALPHA-01</span>
+</div>
+</div>
+
+<div class="control-panel">
+<button id="theme-btn">☀ LIGHT THEME</button>
+<button id="toggle-mode-btn">GO LIVE</button>
+<button id="mute-btn" class="muted-state">UNMUTE ALERT</button>
+</div>
+</header>
+
+<div class="dashboard-grid">
+
+<!-- HEART RATE -->
+<div class="card" id="card-bpm">
+<div class="card-label">HEART RATE</div>
+<div class="value-large"><span id="val-bpm">--</span> BPM</div>
+<div class="threshold-ui">
+ALERT IF > <input type="number" id="limit-bpm" value="100">
+</div>
+</div>
+
+<!-- SPO2 -->
+<div class="card" id="card-spo2">
+<div class="card-label">OXYGEN (SpO₂)</div>
+<div class="value-large"><span id="val-spo2">--</span> %</div>
+<div class="threshold-ui">
+ALERT IF < <input type="number" id="limit-spo2" value="95">
+</div>
+</div>
+
+<!-- TEMPERATURE -->
+<div class="card" id="card-temp">
+<div class="card-label">BODY TEMP</div>
+<div class="value-large"><span id="val-temp">--</span> °C</div>
+<div class="threshold-ui">
+ALERT IF > <input type="number" id="limit-temp" value="37.5">
+</div>
+</div>
+
+<!-- BLOOD PRESSURE -->
+<div class="card" id="card-bp">
+<div class="card-label">BLOOD PRESSURE</div>
+<div class="value-large"><span id="val-bp">--</span> mmHg</div>
+<div class="threshold-ui">
+ALERT IF > <input type="number" id="limit-bp" value="140">
+</div>
+</div>
+
+<!-- MOTION / ENVIRONMENT -->
+<div class="card" id="card-motion">
+<div class="card-label">ENVIRONMENT STATUS</div>
+<div class="value-large"><span id="val-motion">SAFE</span></div>
+</div>
+
+<!-- GRAPHS -->
+
+<div class="card graph-card">
+<canvas id="bpmChart"></canvas>
+</div>
+
+<div class="card graph-card">
+<canvas id="spo2Chart"></canvas>
+</div>
+
+<div class="card graph-card">
+<canvas id="tempChart"></canvas>
+</div>
+
+<div class="card graph-card">
+<canvas id="bpChart"></canvas>
+</div>
+
+<div class="card graph-card">
+<canvas id="motionChart"></canvas>
+</div>
+
+<!-- MAP -->
+<div class="card map-card">
+<div class="map-overlay">
+<div>LAT: <span id="lat-val">--</span></div>
+<div>LNG: <span id="lng-val">--</span></div>
+</div>
+<div id="map"></div>
+</div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
